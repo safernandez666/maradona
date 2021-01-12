@@ -1,0 +1,60 @@
+version: '3'
+ 
+services:
+  db:
+    image: mysql:5.7
+    # Set max_allowed_packet to 256M
+    command: --max_allowed_packet=32505856
+    container_name: db
+    environment:
+      MYSQL_ROOT_PASSWORD:  
+      MYSQL_DATABASE: maradona
+      MYSQL_USER: maradona
+      MYSQL_PASSWORD: secret
+    ports:
+      - "3306:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+      #- ./webserver/controls/scripts/gs.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - red
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: pma
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8080:80
+    networks:
+      - red
+
+  api:
+    build: api/.
+    container_name: api
+    links:
+      - db
+    restart: always
+    ports:
+      - "5000:5000"
+    networks:
+      - red
+
+  app:
+    build: app/.
+    container_name: app
+    links:
+      - api
+    restart: always
+    networks:
+      - red
+volumes:
+  dbdata:
+  config:
+networks:
+  red:
+    driver: bridge
