@@ -1,0 +1,23 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: api-deployment
+  namespace: maradona
+spec:
+  selector:
+    matchLabels:
+      app: api-service
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: api-service
+    spec:
+      containers:
+      - image: safernandez666/maradona_api:latest
+        name: api
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5000
+          name: api

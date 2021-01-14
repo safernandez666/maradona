@@ -14,11 +14,11 @@ def chiste(update, context):
 def get_frase():
     num = get_random()
     print ("El random es: % d" % num)
-    joke=requests.get('http://api:5000/frase/%s' % num)
+    joke=requests.get('http://api-service:5000/frase/%s' % num)
     data=joke.json()
     return data['frases'][0]['frase']
 def get_random():
-    cantidad=requests.get('http://api:5000/cantidad')
+    cantidad=requests.get('http://api-service:5000/cantidad')
     cant_json = cantidad.json()
     num = cant_json['filas'][0]['COUNT(*)']
     random.randint(0, num)

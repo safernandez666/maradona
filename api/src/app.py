@@ -8,10 +8,14 @@ mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'secret'
 app.config['MYSQL_DATABASE_DB'] = 'maradona'
-app.config['MYSQL_DATABASE_HOST'] = 'db'
+app.config['MYSQL_DATABASE_HOST'] = 'mysql-service'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 
 mysql.init_app(app)
+
+@app.route('/', methods=['GET'])
+def home():
+    return "<h1>Distant Reading Archive</h1><p>This site is a prototype API for distant reading of science fiction novels.</p>"
 
 @app.route('/frases')
 def get_all():
