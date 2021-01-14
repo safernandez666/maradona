@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-initdb-config
+data:
+  init:
+    scriptSource:
+      gitRepo:
+        repository: "https://github.com/safernandez666/maradona.git"
+        directory: database/.
