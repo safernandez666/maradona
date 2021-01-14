@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: mysql-initdb-config
 data:
-  initdb.sql: |
+  init.sql: |
     USE maradona;
     DROP TABLE IF EXISTS `frases`;
 
@@ -21,6 +21,7 @@ data:
     VALUES
       (1,'Yo me equivoquÃ© y paguÃ©, pero la pelota no se mancha','Una frase cÃ©lebre, en una Bombonera llena durante el partido de su despedida del fÃºtbol.'),
       (2,'Fue la mano de Dios','AsÃ­ patentÃ³ la cÃ©lebre frase, cuando en el Mundial de MÃ©xico 1986 le hizo a Inglaterra un gol con la mano.');
-
+      (3,'Fue la mano de Dios','AsÃ­ patentÃ³ la cÃ©lebre frase, cuando en el Mundial de MÃ©xico 1986 le hizo a Inglaterra un gol con la mano.');
+    
     /*!40000 ALTER TABLE `frases` ENABLE KEYS */;
     UNLOCK TABLES;
