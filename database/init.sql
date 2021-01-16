@@ -22,7 +22,7 @@
 
 # Volcado de tabla frases
 # ------------------------------------------------------------
-USE maradona;
+USE maradona
 
 DROP TABLE IF EXISTS `frases`;
 
