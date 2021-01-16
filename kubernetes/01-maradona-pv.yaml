@@ -1,5 +1,6 @@
-kind: PersistentVolume
+# Usado para Persistencia de Base de Datos.
 apiVersion: v1
+kind: PersistentVolume
 metadata:
   name: mysql-pv-volume
   namespace: maradona
@@ -8,8 +9,52 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 5Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/data/mysql-pv"
+    path: "/mnt/data"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+  namespace: maradona
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+---
+# Usado para descarga de Script.
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-pv-volume-init
+  namespace: maradona
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/tmp/script"
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim-init
+  namespace: maradona
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi

@@ -1,0 +1,58 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  namespace: maradona
+  name: mysql
+spec:
+  selector:
+    matchLabels:
+      app: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      initContainers:  # this init container download init.sql file using "curl -o <downloaded file name with path> <download url>" command.
+      - name: init-script-downloader
+        image: appropriate/curl
+        args:
+          - "-o"
+          - "/tmp/script/init.sql" # we are saving downloaded file as init.sql in /tmp/data directory
+          - "https://raw.githubusercontent.com/safernandez666/ControlsDockerized/main/webserver/controls/scripts/gs.sql" # download url
+        volumeMounts:
+        - name: init-script # mount the volume where downloaded file will be saved
+          mountPath: /tmp/script
+      containers:
+      - image: mysql:5.6
+        name: mysql
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: root_password
+        - name: MYSQL_DATABASE
+          value: maradona
+        - name: MYSQL_USER
+          value: maradona
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: data
+          mountPath: /var/lib/mysql
+        - name: init-script
+          mountPath: /docker-entrypoint-initdb.d # we are mounting init-script volume in this directory. so init.sql file will be available here.
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", "mysqldump -u root -p$MYSQL_ROOT_PASSWORD maradona < /docker-entrypoint-initdb.d/init.sql"]    
+      volumes:
+      - name: init-script # this volume holds downloaded init.sql file.
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim-init
+      - name: data # this volume will be used for database storage.
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
