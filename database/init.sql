@@ -37,10 +37,10 @@ CREATE TABLE `frases` (
 LOCK TABLES `frases` WRITE;
 /*!40000 ALTER TABLE `frases` DISABLE KEYS */;
 
-INSERT INTO `frases` (`id`, `frase`, `detalle`)
+INSERT INTO `frases` (`frase`, `detalle`)
 VALUES
-	(1,'Yo me equivoquÃ© y paguÃ©, pero la pelota no se mancha','Una frase cÃ©lebre, en una Bombonera llena durante el partido de su despedida del fÃºtbol.'),
-	(2,'Fue la mano de Dios','AsÃ­ patentÃ³ la cÃ©lebre frase, cuando en el Mundial de MÃ©xico 1986 le hizo a Inglaterra un gol con la mano.');
+	('X','X1'),
+	('Y','Y1');
 
 /*!40000 ALTER TABLE `frases` ENABLE KEYS */;
 UNLOCK TABLES;
