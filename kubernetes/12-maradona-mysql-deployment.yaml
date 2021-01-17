@@ -19,11 +19,11 @@ spec:
         image: appropriate/curl
         args:
           - "-o"
-          - "/tmp/script/init.sql" # we are saving downloaded file as init.sql in /tmp/data directory
-          - "https://raw.githubusercontent.com/safernandez666/ControlsDockerized/main/webserver/controls/scripts/gs.sql" # download url
+          - "/mnt/data/scripts/init.sql" # we are saving downloaded file as init.sql in /tmp/data directory
+          - "https://raw.githubusercontent.com/safernandez666/maradona/main/db/maradona.sql" # download url
         volumeMounts:
         - name: init-script # mount the volume where downloaded file will be saved
-          mountPath: /tmp/script
+          mountPath: /mnt/data/scripts
       containers:
       - image: mysql:5.6
         name: mysql
@@ -44,11 +44,7 @@ spec:
         - name: data
           mountPath: /var/lib/mysql
         - name: init-script
-          mountPath: /docker-entrypoint-initdb.d # we are mounting init-script volume in this directory. so init.sql file will be available here.
-        lifecycle:
-          postStart:
-            exec:
-              command: ["/bin/sh", "-c", "mysqldump -u root -p$MYSQL_ROOT_PASSWORD maradona < /docker-entrypoint-initdb.d/init.sql"]    
+          mountPath: /docker-entrypoint-initdb.d # we are mounting init-script volume in this directory. so init.sql file will be available here.  
       volumes:
       - name: init-script # this volume holds downloaded init.sql file.
         persistentVolumeClaim:
