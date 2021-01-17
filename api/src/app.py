@@ -1,5 +1,6 @@
 from flask import Flask, jsonify
 from flaskext.mysql import MySQL
+import sys
 
 app = Flask(__name__)
 mysql = MySQL()
@@ -8,14 +9,15 @@ mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'secret'
 app.config['MYSQL_DATABASE_DB'] = 'maradona'
-app.config['MYSQL_DATABASE_HOST'] = 'mysql-service'
+#app.config['MYSQL_DATABASE_HOST'] = 'mysql-service'
+app.config['MYSQL_DATABASE_HOST'] = 'db'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 
 mysql.init_app(app)
 
 @app.route('/', methods=['GET'])
 def home():
-    return "<h1>Distant Reading Archive</h1><p>This site is a prototype API for distant reading of science fiction novels.</p>"
+    return "<h1>La API Funciona</h1><p>Bienvenidos</p>"
 
 @app.route('/frases')
 def get_all():
@@ -23,7 +25,6 @@ def get_all():
     cur.execute('''select * from maradona.frases''')
     r = [dict((cur.description[i][0], value)
                 for i, value in enumerate(row)) for row in cur.fetchall()]
-    cur.close()
     return jsonify({'frases' : r})
 
 @app.route('/frase/<int:id>')

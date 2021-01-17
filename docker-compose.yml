@@ -7,7 +7,7 @@ services:
     command: --max_allowed_packet=32505856
     container_name: db
     environment:
-      MYSQL_ROOT_PASSWORD:  
+      MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: maradona
       MYSQL_USER: maradona
       MYSQL_PASSWORD: secret
@@ -15,7 +15,8 @@ services:
       - "3306:3306"
     volumes:
       - dbdata:/var/lib/mysql
-      #- ./webserver/controls/scripts/gs.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db/maradona.sql:/docker-entrypoint-initdb.d/init.sql
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
     networks:
       - red
   phpmyadmin:
