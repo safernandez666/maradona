@@ -33,6 +33,8 @@ spec:
             secretKeyRef:
               name: mysql-secret
               key: root_password
+        - name: MYSQL_DATABASE
+          value: maradona
         ports:
         - containerPort: 3306
           name: mysql
