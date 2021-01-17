@@ -11,7 +11,7 @@ CREATE TABLE `frases` (
   `frase` varchar(1000) NOT NULL,
   `detalle` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf-8;
 
 INSERT INTO `frases` (`frase`, `detalle`)
 VALUES
