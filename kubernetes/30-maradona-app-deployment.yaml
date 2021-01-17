@@ -17,6 +17,12 @@ spec:
       containers:
       - image: safernandez666/maradona_app:latest
         name: app
+        env:
+        - name: TOKEN_TELEGRAM
+          valueFrom:
+            secretKeyRef:
+              name: tokentelegram
+              key: token
         imagePullPolicy: Always
         ports:
         - containerPort: 9090

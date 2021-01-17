@@ -31,7 +31,7 @@ if __name__ == '__main__':
     logger = logging.getLogger('nAutomaticBot')
 
     """ Llave API para conectarse a Telegram """
-    updater = Updater(token="1339119499:AAG7CotDaQcPYnAIS3vR7A70qIQcSa_CbCY", use_context=True)
+    updater = Updater(token=os.getenv("TOKEN_TELEGRAM"), use_context=True)
     dp = updater.dispatcher
 
     """ Handler's """
