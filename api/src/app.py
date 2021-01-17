@@ -10,8 +10,9 @@ app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'secret'
 app.config['MYSQL_DATABASE_DB'] = 'maradona'
 #app.config['MYSQL_DATABASE_HOST'] = 'mysql-service'
-app.config['MYSQL_DATABASE_HOST'] = 'db'
-app.config['MYSQL_DATABASE_PORT'] = 3306
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_PORT'] = 56028
+app.config['MYSQL_DATABASE_CHARSET'] = 'utf8'
 
 mysql.init_app(app)
 
