@@ -28,4 +28,6 @@ spec:
             secretKeyRef:
               name: chatid
               key: token
+        - name: MINUTES
+          value: '5'
         imagePullPolicy: Always
