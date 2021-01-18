@@ -4,10 +4,9 @@ metadata:
   name: mysql-service
   namespace: maradona
 spec:
+  selector:
+      app: mysql
   ports:
   - port: 3306
     nodePort: 30306
-  selector:
-    matchLabels: 
-      app: mysql
   type: NodePort
