@@ -37,6 +37,10 @@ services:
   api:
     build: api/.
     container_name: api
+    environment:
+      TELEGRAM_TOKEN: "TUTOKEN"
+      CHAT_ID: "TU_CHAT"
+      MINUTES: '3' # CADA CUANTOS MINUTOS
     links:
       - db
     restart: always
