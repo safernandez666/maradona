@@ -23,4 +23,9 @@ spec:
             secretKeyRef:
               name: tokentelegram
               key: token
+        - name: CHAT_ID
+          valueFrom:
+            secretKeyRef:
+              name: chatid
+              key: token
         imagePullPolicy: Always

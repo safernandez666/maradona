@@ -10,4 +10,4 @@ ADD . /code/
 
 RUN pip install -r /code/src/requirements.txt  
 
-CMD [ "python", "/code/src/app.py" ]
+CMD [ "python3", "/code/src/app.py" ]
