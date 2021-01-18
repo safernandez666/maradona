@@ -34,7 +34,7 @@ logging.getLogger('schedule').setLevel(logging.CRITICAL + 10)
 logger.info('······ WELCOME TO MARADONA BOT ······')
 
 """ Setting Time """
-schedule.every(3).minutes.do(send_message, token, chat_id, get_frase())
+schedule.every(30).minutes.do(send_message, token, chat_id, get_frase())
 
 
 while True:

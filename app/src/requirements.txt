@@ -10,17 +10,14 @@ cryptography==3.3.1
 decorator==4.4.2
 Flask==1.1.2
 idna==2.10
-iocextract==1.13.1
 isort==5.6.4
 itsdangerous==1.1.0
 Jinja2==2.11.2
 lazy-object-proxy==1.4.3
 MarkupSafe==1.1.1
 mccabe==0.6.1
-OpenVulnQuery==1.30
 pycodestyle==2.6.0
 pycparser==2.20
-pycvesearch==1.0.1
 pylint==2.6.0
 python-telegram-bot==13.1
 pytz==2020.5
@@ -33,6 +30,5 @@ toml==0.10.2
 tornado==6.1
 tzlocal==2.1
 urllib3==1.26.2
-vulners==1.5.9
 Werkzeug==1.0.1
 wrapt==1.12.1

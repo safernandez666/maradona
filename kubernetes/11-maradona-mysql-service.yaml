@@ -8,5 +8,6 @@ spec:
   - port: 3306
     nodePort: 30306
   selector:
-    app: mysql
+    matchLabels: 
+      app: mysql
   type: NodePort
