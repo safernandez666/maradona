@@ -7,16 +7,18 @@ INPUT_TEXT = 0
 """ Funciones """
 def start(update, context):
     logger.info('He recibido un comando start')
-    update.message.reply_text('¡Bienvenido al Actualizador de Compromisos %s!' % update.message.from_user.name)
+    update.message.reply_text('¡Bienvenido al BOT del D10s %s, ahora vas a tener sus mejores frases, junto a vos!' % update.message.from_user.name)
 def chiste(update, context):
     logger.info('Consultando API Frases de Maradona')
     update.message.reply_text(get_frase())
 def get_frase():
     num = get_random()
-    print ("El random es: % d" % num)
     joke=requests.get('http://api-service:5000/frase/%s' % num)
     data=joke.json()
-    return data['frases'][0]['frase']
+    msg = "Frase: %s \n" % data['frases'][0]['frase']
+    msg = msg + "Detalle: %s" % data['frases'][0]['detalle']
+    return msg
+
 def get_random():
     cantidad=requests.get('http://api-service:5000/cantidad')
     cant_json = cantidad.json()

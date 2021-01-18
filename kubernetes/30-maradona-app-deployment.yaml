@@ -24,6 +24,3 @@ spec:
               name: tokentelegram
               key: token
         imagePullPolicy: Always
-        ports:
-        - containerPort: 9090
-          name: api
