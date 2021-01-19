@@ -44,11 +44,11 @@ Surely the code can be improved. Adding limits to the manifestos, the idea was t
 
 ## Screenshots
 
-<p align="right">
+<p align="center">
 <img src="screenshots/Inicio.PNG" width="200" >
 </p>
 
-<p align="left">
+<p align="center">
 <img src="screenshots/Mensaje.PNG" width="200" >
 </p>
 
