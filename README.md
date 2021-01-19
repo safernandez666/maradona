@@ -28,9 +28,9 @@ docker-compose up
 
 You must update **02-maradona-secrets.yaml** with your secrets.
 
-TOKEN_TELEGRAM
-CHAT_ID
-MYSQL_ROOT_PASSWORD
+:heavy_check_mark: TOKEN_TELEGRAM
+:heavy_check_mark: CHAT_ID
+:heavy_check_mark: MYSQL_ROOT_PASSWORD
 
 #### Deploy the K8S manifiests
 
