@@ -51,7 +51,7 @@ services:
     environment:
       TOKEN_TELEGRAM: "XXXX" # Telegram Token
       CHAT_ID: "XXXX" # Chat ID
-      MINUTES: "1" # Minutes for send the Message
+      MINUTES: "30" # Minutes for send the Message
       SERVER: "api" # API Server
     links:
       - api
