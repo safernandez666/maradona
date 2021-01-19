@@ -5,10 +5,10 @@ services:
     image: mysql:5.7
     container_name: db
     environment:
-      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: XXX
       MYSQL_DATABASE: maradona
       MYSQL_USER: maradona
-      MYSQL_PASSWORD: secret
+      MYSQL_PASSWORD: XXX
     ports:
       - "3306:3306"
     volumes:
@@ -49,8 +49,8 @@ services:
     build: app/.
     container_name: app
     environment:
-      TOKEN_TELEGRAM: "1502753352:AAFKgU0Jy84oEjiH9qmFtYdZmOMunbcNn-s" # Telegram Token
-      CHAT_ID: "390771484" # Chat ID
+      TOKEN_TELEGRAM: "XXXX" # Telegram Token
+      CHAT_ID: "XXXX" # Chat ID
       MINUTES: "1" # Minutes for send the Message
       SERVER: "api" # API Server
     links:
