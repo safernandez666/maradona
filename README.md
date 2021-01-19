@@ -1,8 +1,8 @@
 # Maradona BOT 
 
-3-tier application to be able to build with Docker-Compose or with Kubernetes.
+3-tier application to be able to build with Docker-Compose or with Kubernetes :wheel_of_dharma:.
 
-The application is a Telegam Bot, with phrases by Maradona.
+The application is a :robot: Telegam Bot, with phrases by Maradona :one::zero:.
 
 ## Architecture
 
@@ -18,13 +18,13 @@ The application is a Telegam Bot, with phrases by Maradona.
 docker-compose build
 ```
 
-#### Run the Docker's
+#### Run the Docker's :whale:
 
 ```bash
 docker-compose up
 ```
 
-## The Kubernetes Way
+## The Kubernetes Way :wheel_of_dharma:
 
 You must update **02-maradona-secrets.yaml** with your secrets.
 
