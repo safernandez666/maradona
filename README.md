@@ -44,12 +44,12 @@ Surely the code can be improved. Adding limits to the manifestos, the idea was t
 
 ## Screenshots
 
-<p align="center">
-<img src="screenshots/Inicio.PNG" width="400" >
+<p align="right">
+<img src="screenshots/Inicio.PNG" width="200" >
 </p>
 
-<p align="center">
-<img src="screenshots/Mensaje.PNG" width="400" >
+<p align="left">
+<img src="screenshots/Mensaje.PNG" width="200" >
 </p>
 
 ## Create your bot with BotFather & generate your Token
