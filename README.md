@@ -10,7 +10,7 @@ The application is a :robot: Telegam Bot, with phrases by Maradona :one::zero:.
 <img src="screenshots/Architecture.PNG" width="600" >
 </p>
 
-## Docker Compose Way
+## Docker Compose Way :whale:
 
 #### Build the Compose
 
@@ -18,7 +18,7 @@ The application is a :robot: Telegam Bot, with phrases by Maradona :one::zero:.
 docker-compose build
 ```
 
-#### Run the Docker's :whale:
+#### Run the Docker's 
 
 ```bash
 docker-compose up
