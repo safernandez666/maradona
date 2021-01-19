@@ -49,10 +49,10 @@ services:
     build: app/.
     container_name: app
     environment:
-      TOKEN_TELEGRAM: "1502753352:AAFKgU0Jy84oEjiH9qmFtYdZmOMunbcNn-s"
-      CHAT_ID: "390771484"
-      MINUTES: "1" # CADA CUANTOS MINUTOS
-      SERVER: "api" # SERVIDOR API
+      TOKEN_TELEGRAM: "1502753352:AAFKgU0Jy84oEjiH9qmFtYdZmOMunbcNn-s" # Telegram Token
+      CHAT_ID: "390771484" # Chat ID
+      MINUTES: "1" # Minutes for send the Message
+      SERVER: "api" # API Server
     links:
       - api
     restart: always
