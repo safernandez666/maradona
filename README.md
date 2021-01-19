@@ -4,6 +4,11 @@
 
 The application is a Telegam Bot, with phrases by Maradona.
 
+## Architecture
+
+<p align="center">
+<img src="screenshots/Architecture.PNG" width="400" >
+</p>
 
 ## Docker Compose Way
 
