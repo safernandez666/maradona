@@ -34,3 +34,17 @@ kubectl apply -f ./
 ```
 
 Surely the code can be improved. Adding limits to the manifestos, the idea was to play with both ways. I hope it helps you.
+
+## Screenshots
+
+<p align="center">
+<img src="screenshots/Inicio.PNG" width="400" >
+</p>
+
+<p align="center">
+<img src="screenshots/Mensaje.PNG" width="400" >
+</p>
+
+## Create your bot with BotFather & generate your Token
+
+[How To](https://core.telegram.org/bots)
