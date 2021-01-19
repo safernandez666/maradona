@@ -3,8 +3,6 @@ version: '3'
 services:
   db:
     image: mysql:5.7
-    # Set max_allowed_packet to 256M
-    command: --max_allowed_packet=32505856
     container_name: db
     environment:
       MYSQL_ROOT_PASSWORD: secret
