@@ -38,9 +38,7 @@ services:
     build: api/.
     container_name: api
     environment:
-      TELEGRAM_TOKEN: "TUTOKEN"
-      CHAT_ID: "TU_CHAT"
-      MINUTES: '3' # CADA CUANTOS MINUTOS
+      DATABASE: "db"
     links:
       - db
     restart: always
@@ -52,6 +50,11 @@ services:
   app:
     build: app/.
     container_name: app
+    environment:
+      TOKEN_TELEGRAM: "1502753352:AAFKgU0Jy84oEjiH9qmFtYdZmOMunbcNn-s"
+      CHAT_ID: "390771484"
+      MINUTES: "1" # CADA CUANTOS MINUTOS
+      SERVER: "api" # SERVIDOR API
     links:
       - api
     restart: always
@@ -63,3 +66,4 @@ volumes:
 networks:
   red:
     driver: bridge
+

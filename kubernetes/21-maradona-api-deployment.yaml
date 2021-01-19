@@ -17,6 +17,9 @@ spec:
       containers:
       - image: safernandez666/maradona_api:latest
         name: api
+        env:
+        - name: DATABASE
+          value: 'mysql-service'
         imagePullPolicy: Always
         ports:
         - containerPort: 5000

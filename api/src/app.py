@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
 from flaskext.mysql import MySQL
-import sys
+import sys, os
 
 app = Flask(__name__)
 mysql = MySQL()
@@ -9,7 +9,7 @@ mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'secret'
 app.config['MYSQL_DATABASE_DB'] = 'maradona'
-app.config['MYSQL_DATABASE_HOST'] = 'mysql-service'
+app.config['MYSQL_DATABASE_HOST'] = os.getenv("DATABASE")
 #app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 app.config['MYSQL_DATABASE_PORT'] = 3306
 app.config['MYSQL_DATABASE_CHARSET'] = 'utf8'

@@ -3,13 +3,14 @@ import yaml, logging, os, time, requests, json, random, schedule, telegram
 
 """ Variables """
 token = os.getenv("TOKEN_TELEGRAM")
-chat_id = os.getenv("CHAT_ID")
+chat_id = int(os.getenv("CHAT_ID"))
 minutes = os.getenv("MINUTES")
+servidor = os.getenv("SERVER")
 
 """ Funciones """
 def send_message():
     num = get_random()
-    joke=requests.get('http://api-service:5000/frase/%s' % num)
+    joke=requests.get('http://' + servidor + ':5000/frase/%s' % num)
     data=joke.json()
     msg = "Frase: %s \n" % data['frases'][0]['frase']
     msg = msg + "Detalle: %s" % data['frases'][0]['detalle']
@@ -18,7 +19,7 @@ def send_message():
     bot.send_message(chat_id=chat_id, text=msg)
             
 def get_random():
-    cantidad=requests.get('http://api-service:5000/cantidad')
+    cantidad=requests.get('http://' + servidor + ':5000/cantidad')
     cant_json = cantidad.json()
     num = cant_json['filas'][0]['COUNT(*)']
     logger.info('······ SE CONSULTA CANTIDAD: %d ······' % num)
@@ -33,7 +34,7 @@ logging.getLogger('schedule').setLevel(logging.CRITICAL + 10)
 logger.info('······ WELCOME TO MARADONA BOT ······')
 
 """ Setting Time """
-schedule.every(1).minutes.do(send_message)
+schedule.every(minutes).minutes.do(send_message)
 
 
 while True:

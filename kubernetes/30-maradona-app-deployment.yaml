@@ -30,4 +30,6 @@ spec:
               key: token
         - name: MINUTES
           value: '5'
+        - name: SERVER
+          value: 'api-service'
         imagePullPolicy: Always
