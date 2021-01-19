@@ -12,13 +12,13 @@ The application is a Telegam Bot, with phrases by Maradona.
 
 ## Docker Compose Way
 
-#### Build the Image
+#### Build the Compose
 
 ```bash
 docker-compose build
 ```
 
-#### Run the Container
+#### Run the Docker's
 
 ```bash
 docker-compose up
@@ -31,6 +31,8 @@ You must update **02-maradona-secrets.yaml** with your secrets.
 TOKEN_TELEGRAM
 CHAT_ID
 MYSQL_ROOT_PASSWORD
+
+#### Deploy the K8S manifiests
 
 On kubernetes folder:
 
