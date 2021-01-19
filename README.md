@@ -12,6 +12,10 @@ The application is a :robot: Telegam Bot, with phrases by Maradona :one::zero:.
 
 ## Docker Compose Way :whale:
 
+You must update de **docker-compose.yaml**
+
+✔️ TOKEN_TELEGRAM ✔️ CHAT_ID
+
 #### Build the Compose
 
 ```bash
